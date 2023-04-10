@@ -13,7 +13,6 @@ const onMessageCloseEvent = (evt) => {
   }
 };
 
-//Успешная загрузка фотографии
 const getModalSuccess = () => {
   const successMessageTemplate = successMessage.content.querySelector('.success');
   const cloneSectionSuccess = successMessageTemplate.cloneNode(true);
@@ -22,7 +21,6 @@ const getModalSuccess = () => {
   cloneSectionSuccess.addEventListener('click', onMessageCloseEvent);
 };
 
-//Загрузка с ошибкой
 const getModalError = () => {
   const errorMessageTemplate = errorMessage.content.querySelector('.error');
   const cloneSectionError = errorMessageTemplate.cloneNode(true);
@@ -42,6 +40,5 @@ function closeMessage () {
   }
   document.removeEventListener('keydown', onMessageCloseEvent);
 }
-
 
 export {getModalSuccess, getModalError};

@@ -9,14 +9,14 @@ const filterElement = document.querySelector('.img-filters');
 let currentFilter = Filter.DEFAULT;
 let pictures = [];
 
-//рандомная сортировка
+
 const sortRandom = () => Math.random() - 0.5;
 
-//сортировка по комметариям
+
 const sortDiscussed = (pictureA, pictureB) =>
   pictureB.comments.length - pictureA.comments.length;
 
-//функция которая в зависимости от фильтра сортирует массив с картинками
+
 const getFilter = () => {
   switch(currentFilter) {
     case Filter.RANDOM:
@@ -43,7 +43,7 @@ const setOnFilterClick = (callback) => {
   });
 };
 
-//функция для активации фильтров
+
 const init = (data, callback) => {
   filterElement.classList.remove('img-filters--inactive');
   pictures = [...data];

@@ -1,4 +1,4 @@
-import {closeModalWindow} from './form.js';
+import {closeImageLoadModal} from './form.js';
 import {showAlert} from './util.js';
 
 const FILE_TYPES = ['jpg','png'];
@@ -17,7 +17,7 @@ const loadLocalFile = () => {
     if (matches) {
       preview.src = URL.createObjectURL(file);
     } else {
-      closeModalWindow();
+      closeImageLoadModal();
       showAlert(FILEFIELD_ERROR_TEXT);
     }
   });
