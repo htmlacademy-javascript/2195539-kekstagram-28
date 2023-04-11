@@ -58,16 +58,6 @@ pristine.addValidator(
   COMMENT_ERROR_TEXT_MAXLENGTH
 );
 
-
-const onImageSelect = () => {
-  modalShow.classList.remove('hidden');
-  body.classList.add('modal-open');
-  document.addEventListener('keydown', onDocumentEscapeKeydown);
-  if (getModalError) {
-    document.removeEventListener('keydown', onDocumentEscapeKeydown);
-  }
-};
-
 const closeImageLoadModal = () => {
   form.reset();
   resetScale();
@@ -76,6 +66,12 @@ const closeImageLoadModal = () => {
   modalShow.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentEscapeKeydown);
+};
+
+const onImageSelect = () => {
+  modalShow.classList.remove('hidden');
+  body.classList.add('modal-open');
+  document.addEventListener('keydown', onDocumentEscapeKeydown);
 };
 
 modalShow.addEventListener('click', (evt) => {
@@ -87,7 +83,9 @@ modalShow.addEventListener('click', (evt) => {
 function onDocumentEscapeKeydown (evt) {
   if (evt.key === 'Escape' && !(document.activeElement === hashtagsField || document.activeElement === commentField)) {
     evt.preventDefault();
-    closeImageLoadModal();
+    if (!document.querySelector('.error')) {
+      closeImageLoadModal();
+    }
   }
 }
 
